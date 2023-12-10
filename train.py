@@ -6,8 +6,6 @@ import warnings
 import itertools
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
 
 from sklearn.feature_extraction import DictVectorizer
 from sklearn.metrics import roc_auc_score
