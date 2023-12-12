@@ -27,3 +27,5 @@ The dataset can be found on [Kaggle](https://www.kaggle.com/datasets/tawfikelmet
 - **1. Problem Description:**
     - The primary objective is to develop a predictive model that accurately forecasts employee turnover in the future. The model's insights will empower HR teams to proactively address retention challenges and implement strategic initiatives to enhance employee satisfaction, ultimately reducing attrition.
 
+- **2. Exploratory Data Analysis (EDA):**
+    - Conducted a detailed EDA to understand the dataset's characteristics.
