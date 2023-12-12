@@ -4,11 +4,11 @@ RUN pip install pipenv
 
 WORKDIR /app
 
-COPY Pipfile Pipfile.lock /app/
+COPY ["Pipfile", "Pipfile.lock", "./"]
 
 RUN pipenv install --system --deploy
 
-COPY predict.py model.bin /app/
+COPY ["predict.py", "model.bin", "./"]
 
 EXPOSE 9696
 
