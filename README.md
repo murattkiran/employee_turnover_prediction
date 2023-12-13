@@ -219,17 +219,9 @@ We aim to identify the most suitable model by training various models and evalua
 
 To isolate the environment from the host machine, follow these steps:
 
-1. Choose a Python version for your Docker image. You can find Docker images [here](https://hub.docker.com/_/python). I have chosen `python:3.10` to match my Python version; choose one based on your preference.
+1. Choose a Python version for your Docker image. You can find Docker images [here](https://hub.docker.com/_/python). 
 
-2. Run the following command to download the Docker image:
-    ```bash
-    docker run -it --rm --entrypoint=bash python:3.10
-    ```
-    - `it`: access to terminal.
-    - `--rm`: remove the image after installation.
-    - `-entrypoint=bash`: communicate with the terminal using `bash` in the image.
-
-3. Create a file named `Dockerfile` with the following content:
+2. Create a file named `Dockerfile` with the following content:
     ```Dockerfile
     # Install Python
     FROM python:3.10
@@ -256,14 +248,16 @@ To isolate the environment from the host machine, follow these steps:
     ENTRYPOINT ["waitress-serve", "--listen=0.0.0.0:9696", "predict:app"]
     ```
 
-4. Build the Docker image using the following command:
+3. Build the Docker image using the following command:
     ```bash
     docker build -t your_image_name .
     ```
     - Replace `your_image_name` with a name of your choice.
 
-5. Run the Docker container:
+4. Run the Docker container:
     ```bash
-    docker run -p 9696:9696 your_image_name
+    docker run -it --rm -p 9696:9696 your_image_name
     ```
+    - `it`: access to terminal.
+    - `--rm`: remove the container after stopping it.
     - The `-p` option binds the host port to the container port.
