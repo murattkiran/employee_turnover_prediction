@@ -142,7 +142,7 @@ We aim to identify the most suitable model by training various models and evalua
 - `from sklearn.ensemble import RandomForestClassifier`
 - pick a range from 10 to 200 to train the model
 - turn it to dataframe and plot it (`n_estimators = 180` seems to be the best), but we dont fix it yet
-  ![est](est.png)
+  ![est](images/est.png)
 
 **Tuning:**
 - `max_depth`: range [5, 10, 15]
