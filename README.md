@@ -184,3 +184,8 @@ We aim to identify the most suitable model by training various models and evalua
   ![xgb_depth](images/xgb_depth.png)
     - `min_child_weight`: how big is the tree? `min_child_weight=10` is the best.
   ![xgb_child](images/xgb_child.png)    
+
+## 4. Choose the Final Model and Model Testing
+
+- XGBoost was selected as the final model, which yielded the best results.
+- Tested the XGBoost model on the full training dataset.
