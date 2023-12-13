@@ -187,5 +187,83 @@ We aim to identify the most suitable model by training various models and evalua
 
 ## 4. Choose the Final Model and Model Testing
 
-- XGBoost was selected as the final model, which yielded the best results.
-- Tested the XGBoost model on the full training dataset.
+- **XGBoost** was selected as the final model, which yielded the best results.
+- Use the full train dataset to train the model again and Test.
+- Repeat the previous steps to obtain the feature matrix, train the model, and test it with the test dataset.
+- Evaluate the final model's performance on the test dataset.
+- Review the results to ensure the model's performance meets the desired criteria.
+
+## 5. Save and Transfer Model
+
+### Save the Model
+- Utilize the `pickle` library to save the trained XGBoost model.
+
+### Transfer the Training Model to a Script
+- Create a script named `train.py`.
+- Save the trained model in a file named `model.bin`.
+
+## 6. Web Service with Flask
+
+- Create a file named `predict.py`.
+- Open a terminal and run `python predict.py` to start the server. 
+- Open another terminal and run `python predict-test.py`. If it displays `{'turnover': True or False, 'turnover_probability': xxxxx}`, it indicates that the model and server are functioning. The `predict-test.py` file contains a sample employee information.
+- Use `Ctrl + c` to stop the server.
+
+## 7. Virtual Environment
+
+- To build a virtual environment, run `pip install pipenv`.
+- Install required packages with `pipenv install numpy sklearn==1.3.1 flask waitress xgboost requests`.
+- Use `pipenv shell` to enter the virtual environment.
+
+## 8. Docker
+
+To isolate the environment from the host machine, follow these steps:
+
+1. Choose a Python version for your Docker image. You can find Docker images [here](https://hub.docker.com/_/python). I have chosen `python:3.10` to match my Python version; choose one based on your preference.
+
+2. Run the following command to download the Docker image:
+    ```bash
+    docker run -it --rm --entrypoint=bash python:3.10
+    ```
+    - `it`: access to terminal.
+    - `--rm`: remove the image after installation.
+    - `-entrypoint=bash`: communicate with the terminal using `bash` in the image.
+
+3. Create a file named `Dockerfile` with the following content:
+    ```Dockerfile
+    # Install Python
+    FROM python:3.10
+
+    # Install pipenv
+    RUN pip install pipenv
+
+    # Create and go to the directory
+    WORKDIR /app
+
+    # Copy files to the current directory
+    COPY ["Pipfile", "Pipfile.lock", "./"]
+
+    # Install packages and deploy them
+    RUN pipenv install --system --deploy
+
+    # Copy files to the current directory
+    COPY ["predict.py", "model.bin", "./"]
+
+    # Open port
+    EXPOSE 9696
+
+    # Execute the service, bind the host port to 9696
+    CMD ["waitress-serve", "--listen=0.0.0.0:9696", "predict:app"]
+    ```
+
+4. Build the Docker image using the following command:
+    ```bash
+    docker build -t your_image_name .
+    ```
+    - Replace `your_image_name` with a name of your choice.
+
+5. Run the Docker container:
+    ```bash
+    docker run -p 9696:9696 your_image_name
+    ```
+    - The `-p` option binds the host port to the container port.
