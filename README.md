@@ -77,44 +77,40 @@ The dataset can be found on [Kaggle](https://www.kaggle.com/datasets/tawfikelmet
     - Leave: 2.840000
     - Stay: 2.940059
 
-*Note: Numeric variables' analysis involved examining the mean values of the target variable.*
-
 #### Target Summary with Categorical:
 
 - **Education:**
-    - Bachelors: 3601
-    - Masters: 873
-    - PHD: 179
+    - Bachelors: 0.313524
+    - Masters: 0.487973
+    - PHD: 0.251397
 
 - **City:**
-    - Bangalore: 2228
-    - New Delhi: 1157
-    - Pune: 1268
+    - Bangalore: 0.267056
+    - New Delhi: 0.316335
+    - Pune: 0.503943
 
 - **Gender:**
-    - Female: 1875
-    - Male: 2778
+    - Female: 0.471467
+    - Male: 0.257739
 
 - **Ever Benched:**
-    - No: 4175
-    - Yes: 478
+    - No: 0.331257
+    - Yes: 0.453975
 
 - **LeaveOrNot:**
-    - Leave: 1600
-    - Stay: 3053
+    - 0: 0.0
+    - 1: 1.0
 
 - **Joining Year:**
-    - 2012: 504
-    - 2013: 669
-    - 2014: 699
-    - 2015: 781
-    - 2016: 525
-    - 2017: 1108
-    - 2018: 367
+    - 2012: 0.216270
+    - 2013: 0.334828
+    - 2014: 0.247496
+    - 2015: 0.407170
+    - 2016: 0.222857
+    - 2017: 0.268051
+    - 2018: 0.986376
 
 - **PaymentTier:**
-    - 1: 243
-    - 2: 918
-    - 3: 3492
-
-*Note: Categorical variables' analysis involved examining the count values of the target variable.*
+    - 1: 0.366255
+    - 2: 0.599129
+    - 3: 0.275200
