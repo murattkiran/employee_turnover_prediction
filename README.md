@@ -137,3 +137,50 @@ We aim to identify the most suitable model by training various models and evalua
   - Make a dataframe of `"max_depth", "min_samples_leaf", "roc_auc_score"` and use seaborn to generate a heatmap; select one of the best combinations, e.g., `max_depth=6`, `min_samples_leaf=5`.
   ![leaf_depth](images/leaf_depth.png)
   - Calculate the roc_auc_score.
+
+### Random Forest
+- `from sklearn.ensemble import RandomForestClassifier`
+- pick a range from 10 to 200 to train the model
+- turn it to dataframe and plot it (`n_estimators = 180` seems to be the best), but we dont fix it yet
+  ![est](est.png)
+
+**Tuning:**
+- `max_depth`: range [5, 10, 15]
+    - For each depth, loop through all `n_estimators`.
+    - Set the seed to fix the result with `random_state=1` to help the model process faster [optional]`n_jobs=-1`.
+    - Plot the result to find the best `max_depth`: 10.
+    ![rf_depth](images/rf_depth.png)
+- `min_samples_leaf` (how big the tree is): range [1, 3, 5, 10, 50]
+    - For each `min_samples_leaf`, loop through all `n_estimators`.
+    - Set `max_depth` to 10, set the seed to fix the result with `random_state=1` to help the model process faster [optional]`n_jobs=-1`.
+    - Plot the result to find the best `min_samples_leaf`: 3.
+    ![rf_leaf](images/rf_leaf.png)
+- Use `n_estimators=180, max_depth=10, min_samples_leaf=3` to train the model.
+- The roc_auc_score result has improved compared to the decision tree model.
+
+### XGBoost
+- `import xgboost as xgb`
+- train the model
+    ```features = list(dv.get_feature_names_out())
+    dtrain = xgb.DMatrix(X_train, label=y_train, feature_names=features)
+    dval = xgb.DMatrix(X_val, label=y_val, feature_names=features)```
+- xgb_output(output) function to capture the output (number interation, train_rmse, val_rmse)
+- plot the graph
+    ![xgb](xgb.png)
+
+**Tuning**                                                                                                                                                                      
+    XGBoost has various tunable parameters but the three most important ones are:
+
+- `eta` (default=0.3)
+  - It is also called `learning_rate` and is used to prevent overfitting by regularizing the weights of new features in each boosting step. range: [0, 1]
+- `max_depth` (default=6)
+  - Maximum depth of a tree. Increasing this value will make the model mroe complex and more likely to overfit. range: [0, inf]
+- `min_child_weight` (default=1)
+  - Minimum number of samples in leaf node. range: [0, inf]
+    - Tuning the learning rate helps you tell the model what speed it would use in deriving the minimum for the weights.
+    `eta=0.1` is the best (faster and more accurate)
+    ![xgb_eta](xgb_eta.png)
+    - `max_depth`: how many trees? `max_depth=4` is the best.
+    ![xgb_depth](xgb_depth.png)
+    - `min_child_weight`: how big is the tree? `min_child_weight=10` is the best.
+    ![xgb_child](xgb_child.png)    
