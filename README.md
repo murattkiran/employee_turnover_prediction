@@ -116,7 +116,9 @@ The dataset can be found on [Kaggle](https://www.kaggle.com/datasets/tawfikelmet
     - 3: 0.275200
 
 ## 2. Prepare Data for Model Training
-    - Extract only those rows in the column leaveornot who are either Stay or Leave as value.
-    - Split the data in a two-step process which finally leads to the distribution of 60% train, 20% validation, and 20% test sets with random seed to `11`.
-    - Prepare target variable `leaveornot` by converting it from categorical to binary, where 0 represents `Stay` and 1 represents `Leave`.
-    - Finally delete the target variable from the train/val/test dataframe.
+
+- Extract only those rows in the column `LeaveOrNot` where the value is either `Stay` or `Leave`.
+- Split the data into train, validation, and test sets in a two-step process, resulting in a distribution of 60% train, 20% validation, and 20% test sets. Use a random seed of `11`.
+- Prepare the target variable `LeaveOrNot` by converting it from categorical to binary, where 0 represents `Stay` and 1 represents `Leave`.
+- Delete the target variable from the train, validation, and test dataframes.
+
