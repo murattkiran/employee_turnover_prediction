@@ -121,3 +121,20 @@ The primary objective is to develop a predictive model that accurately forecasts
 - Prepare the target variable `LeaveOrNot` by converting it from categorical to binary, where 0 represents `Stay` and 1 represents `Leave`.
 - Delete the target variable from the train, validation, and test dataframes.
 
+## 3. Training Models
+
+We aim to identify the most suitable model by training various models and evaluating their performance using the roc_auc_score. The model with the highest roc_auc_score will be considered the most effective.
+
+### Decision Tree
+
+- Use `DecisionTreeClassifier()`.
+- Compare `y_pred` (with `X_train`) and `y_train`, it shows `roc_auc_score = 0.9855092934065315`.
+- Compare `y_pred` (with `X_val`) and `y_train`, it shows `roc_auc_score = 0.7861772633103365`. The training model is overfitting.
+
+**Tuning:**
+- `max_depth` (how many trees): pick a relatively high roc_auc_score value; the result can be varied.
+  - Pick `max_depth=6` -> train roc_auc_score gets better already.
+- `min_samples_leaf` (how big the tree is): set a range of max_depth from the last step, in each depth, loop through a group of `min_samples_leaf`.
+  - Make a dataframe of `"max_depth", "min_samples_leaf", "roc_auc_score"` and use seaborn to generate a heatmap; pick the best combination `max_depth=6`, `min_samples_leaf=5`.
+  ![heatmap](leaf_depth.png)
+  - Calculate the roc_auc_score.
