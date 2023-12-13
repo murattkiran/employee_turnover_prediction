@@ -24,10 +24,10 @@ The dataset can be found on [Kaggle](https://www.kaggle.com/datasets/tawfikelmet
 
 ## Project Structure
 
-## 1. Problem Description
+- **Problem Description:**
     - The primary objective is to develop a predictive model that accurately forecasts employee turnover in the future. The model's insights will empower HR teams to proactively address retention challenges and implement strategic initiatives to enhance employee satisfaction, ultimately reducing attrition.
 
-## 2. Exploratory Data Analysis (EDA)
+## 1. Exploratory Data Analysis (EDA)
 
 - **Analysis of Categorical Variables:**
 
@@ -115,7 +115,7 @@ The dataset can be found on [Kaggle](https://www.kaggle.com/datasets/tawfikelmet
     - 2: 0.599129
     - 3: 0.275200
 
-## 3. Prepare Data for Model Training
+## 2. Prepare Data for Model Training
     - Extract only those rows in the column leaveornot who are either Stay or Leave as value.
     - Split the data in a two-step process which finally leads to the distribution of 60% train, 20% validation, and 20% test sets with random seed to `11`.
     - Prepare target variable `leaveornot` by converting it from categorical to binary, where 0 represents `Stay` and 1 represents `Leave`.
