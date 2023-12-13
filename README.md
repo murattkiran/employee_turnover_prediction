@@ -164,7 +164,7 @@ We aim to identify the most suitable model by training various models and evalua
     ```features = list(dv.get_feature_names_out())
     dtrain = xgb.DMatrix(X_train, label=y_train, feature_names=features)
     dval = xgb.DMatrix(X_val, label=y_val, feature_names=features)```
-- xgb_output(output) function to capture the output (number interation, train_rmse, val_rmse)
+- xgb_output(output) function to capture the output 
 - plot the graph
   ![xgb](images/xgb.png)
 
