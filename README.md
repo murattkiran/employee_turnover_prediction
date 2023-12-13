@@ -129,11 +129,11 @@ We aim to identify the most suitable model by training various models and evalua
 
 - Use `DecisionTreeClassifier()`.
 - Compare `y_pred` (with `X_train`) and `y_train`, it shows `roc_auc_score = 0.9855092934065315`.
-- Compare `y_pred` (with `X_val`) and `y_train`, it shows `roc_auc_score = 0.7861772633103365`. The training model is overfitting.
+- Compare `y_pred` (with `X_val`) and `y_train`, it shows `roc_auc_score = 0.7861772633103365`. The training model seems to be overfitting.
 
 **Tuning:**
 - `max_depth` (how many trees): pick a relatively high roc_auc_score value; the result can be varied.
 - `min_samples_leaf` (how big the tree is): set a range of max_depth from the last step, in each depth, loop through a group of `min_samples_leaf`.
-  - Make a dataframe of `"max_depth", "min_samples_leaf", "roc_auc_score"` and use seaborn to generate a heatmap; pick the best combination `max_depth=6`, `min_samples_leaf=5`.
+  - Make a dataframe of `"max_depth", "min_samples_leaf", "roc_auc_score"` and use seaborn to generate a heatmap; select one of the best combinations, e.g., `max_depth=6`, `min_samples_leaf=5`.
   ![leaf_depth](images/leaf_depth.png)
   - Calculate the roc_auc_score.
