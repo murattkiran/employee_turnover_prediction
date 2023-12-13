@@ -136,5 +136,5 @@ We aim to identify the most suitable model by training various models and evalua
   - Pick `max_depth=6` -> train roc_auc_score gets better already.
 - `min_samples_leaf` (how big the tree is): set a range of max_depth from the last step, in each depth, loop through a group of `min_samples_leaf`.
   - Make a dataframe of `"max_depth", "min_samples_leaf", "roc_auc_score"` and use seaborn to generate a heatmap; pick the best combination `max_depth=6`, `min_samples_leaf=5`.
-  ![heatmap](leaf_depth.png)
+  ![leaf_depth](leaf_depth.png)
   - Calculate the roc_auc_score.
