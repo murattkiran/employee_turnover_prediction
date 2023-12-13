@@ -166,7 +166,7 @@ We aim to identify the most suitable model by training various models and evalua
     dval = xgb.DMatrix(X_val, label=y_val, feature_names=features)```
 - xgb_output(output) function to capture the output (number interation, train_rmse, val_rmse)
 - plot the graph
-    ![xgb](xgb.png)
+  ![xgb](images/xgb.png)
 
 **Tuning**                                                                                                                                                                      
     XGBoost has various tunable parameters but the three most important ones are:
@@ -179,8 +179,8 @@ We aim to identify the most suitable model by training various models and evalua
   - Minimum number of samples in leaf node. range: [0, inf]
     - Tuning the learning rate helps you tell the model what speed it would use in deriving the minimum for the weights.
     `eta=0.1` is the best (faster and more accurate)
-    ![xgb_eta](xgb_eta.png)
+  ![xgb_eta](images/xgb_eta.png)
     - `max_depth`: how many trees? `max_depth=4` is the best.
-    ![xgb_depth](xgb_depth.png)
+  ![xgb_depth](images/xgb_depth.png)
     - `min_child_weight`: how big is the tree? `min_child_weight=10` is the best.
-    ![xgb_child](xgb_child.png)    
+  ![xgb_child](images/xgb_child.png)    
