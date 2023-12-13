@@ -253,7 +253,7 @@ To isolate the environment from the host machine, follow these steps:
     EXPOSE 9696
 
     # Execute the service, bind the host port to 9696
-    CMD ["waitress-serve", "--listen=0.0.0.0:9696", "predict:app"]
+    ENTRYPOINT ["waitress-serve", "--listen=0.0.0.0:9696", "predict:app"]
     ```
 
 4. Build the Docker image using the following command:
