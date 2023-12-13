@@ -177,6 +177,7 @@ We aim to identify the most suitable model by training various models and evalua
   - Maximum depth of a tree. Increasing this value will make the model mroe complex and more likely to overfit. range: [0, inf]
 - `min_child_weight` (default=1)
   - Minimum number of samples in leaf node. range: [0, inf]
+    
     - Tuning the learning rate helps you tell the model what speed it would use in deriving the minimum for the weights.
     `eta=0.1` is the best (faster and more accurate)
   ![xgb_eta](images/xgb_eta.png)
