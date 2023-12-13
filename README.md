@@ -22,9 +22,8 @@ The dataset comprises various features, both categorical and numerical, aiming t
 **Dataset Source:**
 The dataset can be found on [Kaggle](https://www.kaggle.com/datasets/tawfikelmetwally/employee-dataset/data).
 
-## Project Structure
+## Problem Description
 
-- **Problem Description:**
     - The primary objective is to develop a predictive model that accurately forecasts employee turnover in the future. The model's insights will empower HR teams to proactively address retention challenges and implement strategic initiatives to enhance employee satisfaction, ultimately reducing attrition.
 
 ## 1. Exploratory Data Analysis (EDA)
