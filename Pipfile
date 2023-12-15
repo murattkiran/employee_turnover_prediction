@@ -15,5 +15,5 @@ requests = "*"
 awsebcli = "*"
 
 [requires]
-python_version = "3.10"
-python_full_version = "3.10.0"
+python_version = "3.10.13"
+python_full_version = "3.10.13"
