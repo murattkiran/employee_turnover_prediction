@@ -261,3 +261,53 @@ To isolate the environment from the host machine, follow these steps:
     - `it`: access to terminal.
     - `--rm`: remove the container after stopping it.
     - The `-p` option binds the host port to the container port.
+
+## 9. Cloud Deployment
+
+1. **Push your image to Docker Hub:**
+
+    First, push your Docker image to Docker Hub by executing the following commands in your terminal:
+
+    ```bash
+    docker login
+    docker tag your_image_name YOUR_DOCKERHUB_NAME/image_name
+    docker push YOUR_DOCKERHUB_NAME/image_name
+    ```
+
+    Replace `your_image_name` with the name of your Docker image, and `YOUR_DOCKERHUB_NAME/image_name` with your Docker Hub username and the name you want for your image.
+
+2. **Deploy on Render:**
+
+    - Open [Render](https://render.com/) in your web browser.
+
+    - Create a new web service by selecting "Deploy an existing image from a registry."
+
+    ![create](images/create.png)
+
+    - Enter the image URL in the format "YOUR_DOCKERHUB_NAME/image_name."
+
+    ![dockerimage](images/dockerimage.png)
+
+    - Complete the configuration and initiate the web service.
+
+    ![live](images/live.png)
+
+3. **Configure Predict Cloud File:**
+
+    - Set the host in `predict-cloud.py` to the URL provided by Render for your deployed web service.
+
+4. **Run the Cloud Service:**
+
+    - Open a new terminal and run the following command:
+    
+        ```bash
+        python predict-cloud.py
+        ```
+
+5. **View the Final Result:**
+
+    - Check the result in your Render dashboard or visit the provided URL. The final result should be displayed.
+
+    ![cloud](images/cloud.png)
+
+Now, deploy your web service, which hosts the model, to the cloud. Access it through the provided URL
