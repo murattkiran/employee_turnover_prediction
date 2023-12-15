@@ -224,7 +224,7 @@ To isolate the environment from the host machine, follow these steps:
 2. Create a file named `Dockerfile` with the following content:
     ```Dockerfile
     # Install Python
-    FROM python:3.10
+    FROM python:3.10.13
 
     # Install pipenv
     RUN pip install pipenv
