@@ -311,3 +311,7 @@ To isolate the environment from the host machine, follow these steps:
     ![cloud](images/cloud.png)
 
 Now, deploy your web service, which hosts the model, to the cloud. Access it through the provided URL
+
+**Note:** 
+- You can deploy the application on various cloud providers like Google Cloud, Heroku, AWS, etc.
+- I have tested the deployment on both AWS Elastic Beanstalk and Render.com.
